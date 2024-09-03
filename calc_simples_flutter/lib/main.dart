@@ -6,12 +6,14 @@ void main() {
 }
 
 class MeuApp extends StatelessWidget {
+  const MeuApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: "Calculadora Simples",
-      theme: new ThemeData(primarySwatch: Colors.deepPurple),
-      home: new Calculadora(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home: Calculadora(),
     );
   }
 }

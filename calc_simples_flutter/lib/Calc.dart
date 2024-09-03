@@ -1,58 +1,62 @@
 import 'package:flutter/material.dart';
 
 class Calculadora extends StatefulWidget {
+  const Calculadora({super.key});
+
   @override
-  State createState() => new CalculadoraState();
+  State createState() => CalculadoraState();
 }
 
 class CalculadoraState extends State<Calculadora> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
           ":: Calculadora - Simples ::"),
         backgroundColor: Colors.deepPurple,
       ),
-      body: new Container(
+      body: Container(
         padding: const EdgeInsets.all(40),
-        child: new Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             
             // Campo de texto para exibir o resultado
-            new Text(
+            Text(
               "Resultado: $resultado",
-              style: new TextStyle(
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.deepPurple),
             ),
 
             // Campo de texto para solicitar o valor 1
-            new TextField(
+            TextField(
               keyboardType: TextInputType.number,
-              decoration: new InputDecoration(hintText: "Informe o valor 1"),
+              decoration: const InputDecoration(hintText: "Informe o valor 1"),
               controller: t1,
             ),
 
             // Campo de texto para solicitar o valor 2
-            new TextField(
+            TextField(
               keyboardType: TextInputType.number,
-              decoration: new InputDecoration(hintText: "Informe o valor 2"),
+              decoration: InputDecoration(hintText: "Informe o valor 2"),
               controller: t2,
             ),
 
             // Espaçamento depois dos inputs
-            new Padding(
+            const Padding(
               padding: const EdgeInsets.only(top: 20)
             ),
 
             // Botão +
-            new Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                new MaterialButton(
+                MaterialButton(
+                  color: Colors.blueAccent,
+                  onPressed: somar,
                   child: new Text(
                     "+",
                     style: new TextStyle(
@@ -60,12 +64,11 @@ class CalculadoraState extends State<Calculadora> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,),
                   ),
-
-                  color: Colors.blueAccent,
-                  onPressed: somar,
                 ),
 
-                new MaterialButton(
+                MaterialButton(
+                  color: Colors.blueAccent,
+                  onPressed: subtrair,
                   child: new Text(
                     "-",
                     style: new TextStyle(
@@ -73,21 +76,20 @@ class CalculadoraState extends State<Calculadora> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,),
                   ),
-
-                  color: Colors.blueAccent,
-                  onPressed: subtrair,
                 ),
               ],
             ),
             
-            new Padding(
+            const Padding(
               padding: const EdgeInsets.only(top: 20)
             ),
             
-            new Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                new MaterialButton(
+                MaterialButton(
+                  color: Colors.blueAccent,
+                  onPressed: multiplicar,
                   child: new Text(
                     "*",
                     style: new TextStyle(
@@ -95,12 +97,11 @@ class CalculadoraState extends State<Calculadora> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,),
                   ),
-
-                  color: Colors.blueAccent,
-                  onPressed: multiplicar,
                 ),
 
-                new MaterialButton(
+                MaterialButton(
+                  color: Colors.blueAccent,
+                  onPressed: dividir,
                   child: new Text(
                     "/",
                     style: new TextStyle(
@@ -108,26 +109,23 @@ class CalculadoraState extends State<Calculadora> {
                       fontWeight: FontWeight.bold,
                       color: Colors.white,),
                   ),
-
-                  color: Colors.blueAccent,
-                  onPressed: dividir,
                 ),
               ],
             ),
                
             //Espaçamento dps dos botões
-            new Padding(
+            const Padding(
               padding: const EdgeInsets.only(top: 20)
             ),
               
             // Botão Limpar
-            new Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                new MaterialButton(
-                  child:  Text("Limpar"),
+                MaterialButton(
                   color: Colors.grey,
-                  onPressed: limpar),
+                  onPressed: limpar,
+                  child:  Text("Limpar")),
               ],
             )
           ],
@@ -141,8 +139,8 @@ class CalculadoraState extends State<Calculadora> {
   var num2;
   var resultado = 0;
 
-  TextEditingController t1 = new TextEditingController(text: "");
-  TextEditingController t2 = new TextEditingController(text: "");
+  TextEditingController t1 = TextEditingController(text: "");
+  TextEditingController t2 = TextEditingController(text: "");
 
   // Métodos
   void somar() {
