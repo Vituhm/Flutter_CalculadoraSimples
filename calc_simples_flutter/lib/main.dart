@@ -14,6 +14,8 @@ class MeuApp extends StatelessWidget {
       title: "Calculadora Simples",
       theme: ThemeData(primarySwatch: Colors.deepPurple),
       home: Calculadora(),
+      //DEBUG
+      debugShowCheckedModeBanner: false,
     );
   }
 }
